@@ -1,0 +1,13 @@
+target/
+*.tar.gz
+agent-linux-pve
+*.ko
+*.mod
+*.mod.c
+*.o
+*.order
+*.symvers
+.tmp_versions/
+vm
+doc
+AGENTS.md

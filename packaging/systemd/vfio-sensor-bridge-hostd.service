@@ -1,0 +1,16 @@
+[Unit]
+Description=VFIO Sensor Bridge host daemon
+After=systemd-modules-load.service
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/hostd /etc/vfio-sensor-bridge/hostd.toml
+Restart=on-failure
+RestartSec=2s
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+RestrictSUIDSGID=true
+
+[Install]
+WantedBy=multi-user.target

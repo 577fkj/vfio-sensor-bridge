@@ -1,0 +1,22 @@
+[daemon]
+run_dir = "/run/vfio-sensor-bridge"
+device = "/dev/vfio-sensor-bridge"
+log_level = "info"
+
+[virtio]
+channel_name = "org.vfio_sensor_bridge.0"
+socket_template = "/run/vfio-sensor-bridge/vm-{vmid}.sock"
+
+[heartbeat]
+timeout_seconds = 30
+policy = "warn_then_remove"
+
+[hooks]
+enabled = true
+debounce_seconds = 5
+timeout_seconds = 30
+
+[[hooks.rule]]
+events = ["device_created", "device_removed", "sensor_added", "sensor_removed", "sensor_changed", "vm_offline"]
+command = ["/usr/bin/systemctl", "restart", "fancontrol.service"]
+

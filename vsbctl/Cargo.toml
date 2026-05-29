@@ -1,0 +1,11 @@
+[package]
+name = "vsbctl"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+libc.workspace = true
+serde_json.workspace = true
+vsb-protocol.workspace = true
